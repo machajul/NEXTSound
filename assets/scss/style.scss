@@ -1,0 +1,201 @@
+$titre : "Crimson Pro";
+$para : "Montserrat";
+$colorBase : white;
+$colorSecon : black;
+$h2 : 48px;
+$h3 : 28px;
+$h4 : 20px;
+
+
+@mixin align {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@mixin button {
+    border-radius: 5px;
+    padding: 10px 20px;
+    gap: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+@mixin h ($size) {
+    font-size: $size;
+    font-weight: bold;
+    font-family: $titre;
+}
+
+@mixin p ($color) {
+    font-size: 16px;
+    font-weight: 400px;
+    font-style: normal;
+    font-family: $para;
+    color: $color;
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #324A5F;
+    color: $colorBase;
+    }
+    
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    @include align();
+    height: 110px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    }
+
+.logo {
+    width: 150px;
+    height: 38.61px;
+    }
+    
+.menu {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    @include align();
+    }
+ 
+li {
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+    display: inline-flex;
+    color: $colorBase;
+  }
+
+.cta {
+    display: flex;
+    flex-direction: row;
+    @include align();
+}
+
+.button {
+    @include button();
+    background-color: #324A5F;
+}
+
+.button2 {
+    background-color: #5FB0B7;
+    @include button();
+}
+
+.entete {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+h2 {
+    @include h ($h2);
+    text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.25);
+    padding: 20px 0px;
+}
+
+.phone-container {
+    display: flex;
+    @include align();
+}
+
+.phone {
+    width: 389px;
+    height: 584px;
+}
+
+.slogan {
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.nouvelleFaçon {
+    display: flex;
+    flex-direction: column;
+    background-color: #0C1B21;
+    color: $colorBase;
+    padding: 60px 0px;
+    @include align();
+    height: 100%;
+}
+
+h3 {
+    @include h ($h3);
+    padding: 25px 0px 10px 0px;
+}
+
+.arguments-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+    padding: 30px 0px;
+    gap: 110px;
+}
+
+.arguments {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include align();
+    width: 250px;
+    
+
+    img{
+        border-radius: 30px;
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        
+    }
+
+    img.custom {
+        object-fit: cover;
+        object-position: left center;
+    }
+
+    p{
+        @include p($colorBase);
+    }
+}
+
+.formule {
+    color: $colorBase;
+    padding: 60px 0px;
+    @include align();
+    height: 100%;
+    background-color: #5FB0B7;
+}
+
+.forfait {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px 0px;
+    gap: 20px;
+    @include align();
+
+    img{
+        border-radius: 15px;
+        width: 100%;
+    }
+
+    p{
+        @include p($colorBase);
+    }
+}
+
+
+
