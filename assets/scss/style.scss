@@ -1,5 +1,8 @@
-$titre : "Crimson Pro";
-$para : "Montserrat";
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+
+$titre : "Crimson Pro", sans-serif;
+$para : "Montserrat", sans-serif;
 $colorBase : white;
 $colorSecon : black;
 $h2 : 48px;
@@ -7,18 +10,21 @@ $h3 : 28px;
 $h4 : 20px;
 
 
-@mixin align {
+@mixin align () {
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-@mixin button {
+@mixin button ($colorButton) {
     border-radius: 5px;
     padding: 10px 20px;
     gap: 10px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
+    background-color: $colorButton;
+    font-weight: 600;
+    font-family: $para;
+}
 
 @mixin h ($size) {
     font-size: $size;
@@ -28,7 +34,6 @@ $h4 : 20px;
 
 @mixin p ($color) {
     font-size: 16px;
-    font-weight: 400px;
     font-style: normal;
     font-family: $para;
     color: $color;
@@ -40,6 +45,10 @@ $h4 : 20px;
     padding: 0;
 }
 
+body {
+    font-family: $para;
+    font-weight: 300;
+}
 header {
     background-color: #324A5F;
     color: $colorBase;
@@ -85,26 +94,25 @@ a {
 }
 
 .button {
-    @include button();
-    background-color: #324A5F;
+    @include button(#324A5F);
 }
 
 .button2 {
-    background-color: #5FB0B7;
-    @include button();
+    @include button(#5FB0B7);
 }
 
 .entete {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+
+    h2 {
+        @include h ($h2);
+        text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.25);
+        padding: 20px 0px;
+    }
 }
 
-h2 {
-    @include h ($h2);
-    text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.25);
-    padding: 20px 0px;
-}
 
 .phone-container {
     display: flex;
@@ -136,6 +144,7 @@ h2 {
 h3 {
     @include h ($h3);
     padding: 25px 0px 10px 0px;
+    
 }
 
 .arguments-container {
@@ -154,12 +163,11 @@ h3 {
     width: 250px;
     
 
-    img{
+    img {
         border-radius: 30px;
         width: 100%;
         aspect-ratio: 1/1;
-        object-fit: cover;
-        
+        object-fit: cover; 
     }
 
     img.custom {
@@ -184,18 +192,202 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 30px 0px;
-    gap: 20px;
+    gap: 112px;
     @include align();
-
-    img{
+    max-width: 1112px;
+    width: 100%;
+    text-align: left;
+    margin: auto;
+    
+    img {
         border-radius: 15px;
-        width: 100%;
+        width: 500px;
+        height: 280px;
+        object-fit: cover;
+        @include align();
     }
 
-    p{
-        @include p($colorBase);
+    p {
+        text-align: left;
+        font-size: 18px;
+        font-family: $para;
+        line-height: 26px;
+    }
+    span {
+        font-weight: bold;
+    }
+
+    .button3 {
+        @include button(#8DE969);
+        color: black;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .condition {
+        font-size: 14px;
+        font-style: italic;
+        line-height: 20px;
     }
 }
+
+.contenus {
+    color: $colorBase;
+    padding: 60px 0px;
+    @include align();
+    background: url(../images/fond/symbol-scatter-haikei\ 1.png), rgb(12, 27, 33);
+}
+
+.albums {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: auto;
+    max-width: 1100px;
+    gap: 25px;
+    padding: 30px 0px;
+    @include align();
+    
+    img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+}
+.button4 {
+    @include button(#8DE969);
+    color: black;
+    font-size: 18px;
+    margin-top: 20px;
+}
+.testez {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.container_rightBlock {
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    background-color: #8DE969;
+}
+
+.rightBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 529px;
+    padding-left: 30px;
+    gap: 20px;
+    
+    h2 {
+        @include h ($h2);
+        font-size: $titre;
+    }
+
+    p {
+        font-size: 24px;
+    }
+
+    .email{
+        height: 77px;
+        width: 100%;
+        border-radius: 20px;
+        border: 1px solid #0C1B21;
+        box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.05) inset;
+        background: #F4F4F4;
+        padding-top: 5px;
+    }
+
+    .email::placeholder {
+        font-size: 24px;
+        text-indent: 1rem;
+    }
+    
+    .button5 {
+        display: flex;
+        flex-direction: row;
+        @include button(#324A5F);
+        color: white;
+        margin-left: auto;
+    }
+
+    .modalite {
+        color: #777;
+        text-align: justify;
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+footer {
+    background: #0C1B21;
+    color: $colorBase;
+    padding: 50px;
+}
+
+
+.container_footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    max-width: 1200px;
+    gap: 30px;
+    width: 100%;
+    justify-content: start;
+    @include align();
+    text-align: start;
+    
+    h2 {
+        @include h($h2);
+    }
+    
+    .leftBlock {
+        display: flex;
+        flex-direction: column;
+        width: 380px;
+        gap: 35px;
+        font-size: 16px;
+    }
+
+     img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .rightBlock {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        width: 380px;
+        gap: 20px;
+    }
+}
+
+
+    
+
+
+
+
+
+
+
+
+
+
 
 
 
