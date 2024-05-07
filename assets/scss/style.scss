@@ -63,72 +63,89 @@ nav {
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
-    }
 
-.logo {
-    width: 150px;
-    height: 38.61px;
+    .logo {
+        width: 150px;
+        height: 38.61px;
     }
     
-.menu {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    @include align();
+    .menu {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        @include align();
+        }
+     
+    li {
+        display: inline;
     }
- 
-li {
-    display: inline;
-}
-
-a {
-    text-decoration: none;
-    display: inline-flex;
-    color: $colorBase;
-  }
-
-.cta {
-    display: flex;
-    flex-direction: row;
-    @include align();
-}
-
-.button {
-    @include button(#324A5F);
-}
-
-.button2 {
-    @include button(#5FB0B7);
+    
+    a {
+        text-decoration: none;
+        display: inline-flex;
+        color: $colorBase;
+      }
+    
+    .cta {
+        display: flex;
+        flex-direction: row;
+        @include align();
+    }
+    
+    .button {
+        @include button(#324A5F);
+    }
+    
+    .button2 {
+        @include button(#5FB0B7);
+    }
 }
 
 .entete {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-
+    
     h2 {
         @include h ($h2);
         text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.25);
         padding: 20px 0px;
     }
-}
-
-
-.phone-container {
-    display: flex;
-    @include align();
-}
-
-.phone {
-    width: 389px;
-    height: 584px;
-}
-
-.slogan {
-    display: flex;
-    flex-direction: column;
-    font-size: 32px;
-    font-weight: bold;
+    
+    .phone_container {
+        display: flex;
+        @include align();
+        position: relative;
+        width: 389px;
+        height: 584px;
+        margin: 0px 90px 0px auto;
+    }
+    
+    .phone_container img {
+        width: 389px;
+        height: 584px;
+    }
+    
+    /* Rendre la seconde image invisible, definir sa position lorqu'elle apparait, et régler les propriétés de transaction */
+    .phone_container img:nth-child(2) {
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        // transition: opacity ease-out 300ms;
+    }
+    
+    /*Régler l'opacité afin que la seconde image apparaise au dessus de la première lorsque le curseur passe dessus */
+    
+    .phone_container:hover img:nth-child(2) {
+        opacity: 1;
+    }
+  
+    .slogan {
+        display: flex;
+        flex-direction: column;
+        font-size: 32px;
+        font-weight: bold;
+    }
 }
 
 .nouvelleFaçon {
@@ -337,7 +354,6 @@ footer {
     padding: 50px;
 }
 
-
 .container_footer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -375,19 +391,3 @@ footer {
         gap: 20px;
     }
 }
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
