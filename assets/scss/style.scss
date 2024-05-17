@@ -105,40 +105,54 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    position: relative; /* Permet de positionner l'image absolument */
+    overflow: hidden; /* Masque l'image qui dépasse du conteneur */
+
+
+h2 {
+    @include h ($h2);
+    text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.25);
+    padding: 20px 0px;
+}
+
+.phone_container {
+    display: flex;
+    @include align();
+    position: relative;
+    width: 389px;
+    height: 584px;
+    margin: 0px 90px 0px auto;
+}
+
+.phone_container img {
+    width: 389px;
+    height: 584px;
+}
+  .phone {
+        position: absolute; /* Positionnement absolu */
+        bottom: -50px; /* Positionne l'image en bas du conteneur */
+        transition: bottom 0.5s ease; /* Transition pour le bas */
     
-    h2 {
-        @include h ($h2);
-        text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.25);
-        padding: 20px 0px;
     }
     
-    .phone_container {
-        display: flex;
-        @include align();
-        position: relative;
-        width: 389px;
-        height: 584px;
-        margin: 0px 90px 0px auto;
-    }
+      .phone_container:hover .phone {
+            bottom: 0px; /* Déplace l'image vers le haut au survol */
+        }
+        
+    // 2eme methode avec les 2 images comme figma
+    // /* Rendre la seconde image invisible, definir sa position lorqu'elle apparait, et régler les propriétés de transaction */
+    // .phone_container img:nth-child(2) {
+    //     position: absolute;
+    //     right: 0;
+    //     opacity: 0;
+    //     // transition: opacity ease-out 300ms;
+    // }
     
-    .phone_container img {
-        width: 389px;
-        height: 584px;
-    }
+    // /*Régler l'opacité afin que la seconde image apparaise au dessus de la première lorsque le curseur passe dessus */
     
-    /* Rendre la seconde image invisible, definir sa position lorqu'elle apparait, et régler les propriétés de transaction */
-    .phone_container img:nth-child(2) {
-        position: absolute;
-        right: 0;
-        opacity: 0;
-        // transition: opacity ease-out 300ms;
-    }
-    
-    /*Régler l'opacité afin que la seconde image apparaise au dessus de la première lorsque le curseur passe dessus */
-    
-    .phone_container:hover img:nth-child(2) {
-        opacity: 1;
-    }
+    // .phone_container:hover img:nth-child(2) {
+    //     opacity: 1;
+    // }
   
     .slogan {
         display: flex;
@@ -224,21 +238,23 @@ h3 {
         @include align();
     }
 
-    p {
+    p { 
         text-align: left;
         font-size: 18px;
         font-family: $para;
         line-height: 26px;
-    }
-    span {
-        font-weight: bold;
+        
+        span {
+            font-weight: bold;
+        }
     }
 
     .button3 {
+        display: flex;
+        width: fit-content;
         @include button(#8DE969);
         color: black;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin: 20px 0px;
     }
 
     .condition {
@@ -253,6 +269,7 @@ h3 {
     padding: 60px 0px;
     @include align();
     background: url(../images/fond/symbol-scatter-haikei\ 1.png), rgb(12, 27, 33);
+    
 }
 
 .albums {
@@ -270,14 +287,44 @@ h3 {
         object-fit: cover;
         border-radius: 5px;
     }
-
+}
+.container_albums {
+    position: relative;
+    img:hover {
+        opacity: 50%;
+    }
+}
+.albums_hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    flex-wrap: wrap ;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: black;
+    font-weight: bold;
+    background-color: rgba(141, 233, 105, 0.7);
+    display: none;
+    padding: 5px;
+}
+  .container_albums:hover .albums_hover {
+    display: flex;
 }
 .button4 {
     @include button(#8DE969);
-    color: black;
     font-size: 18px;
     margin-top: 20px;
-}
+    display: inline-flex;
+    a {
+        text-decoration: none;
+        color: $colorSecon;
+    }
+ }
 .testez {
     display: grid;
     grid-template-columns: 1fr 1fr;
